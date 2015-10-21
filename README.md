@@ -1,4 +1,2 @@
 # DAM
 DAM Application
-
-Yepaa
