@@ -28,15 +28,24 @@ public final class R {
         public static final int navigation_drawer_width=0x7f040002;
     }
     public static final class drawable {
-        public static final int drawer_shadow=0x7f020000;
-        public static final int ic_drawer=0x7f020001;
-        public static final int ic_launcher=0x7f020002;
-        public static final int icon1=0x7f020003;
-        public static final int main_header_selector=0x7f020004;
+        public static final int clock=0x7f020000;
+        public static final int cloud=0x7f020001;
+        public static final int drawer_shadow=0x7f020002;
+        public static final int ic_drawer=0x7f020003;
+        public static final int ic_launcher=0x7f020004;
+        public static final int icon1=0x7f020005;
+        public static final int main_header_selector=0x7f020006;
+        public static final int map=0x7f020007;
+        public static final int tools=0x7f020008;
     }
     public static final class id {
         public static final int imageView1=0x7f080002;
+        public static final int imageView2=0x7f080004;
+        public static final int imageView3=0x7f080005;
+        public static final int imageView4=0x7f080006;
+        public static final int imageView5=0x7f080007;
         public static final int linearLayout=0x7f080000;
+        public static final int tableLayout=0x7f080003;
         public static final int texto=0x7f080001;
     }
     public static final class layout {
