@@ -39,11 +39,12 @@
     	        android:layout_marginLeft="65sp"/>
 
     	    <ImageView
-    	        android:id="@+id/imageView3"
+    	        android:id="@+id/weather"
     	        android:layout_width="90dp"
 		        android:layout_height="90dp"
     	        android:src="@drawable/cloud" 
     	        android:layout_marginLeft="70sp"
+    	        android:onClick="getWeather"
     	        />
     	</TableRow>
     	<TableRow android:layout_marginTop="40sp">

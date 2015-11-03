@@ -18,6 +18,11 @@
             </intent-filter>
         </activity>
         
+        <activity
+            android:name=".WeatherActivity"
+            android:theme="@android:style/Theme.NoTitleBar">          
+        </activity>
+        
     </application>
 
 </manifest>
