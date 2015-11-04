@@ -48,8 +48,6 @@ public final class R {
         public static final int tableLayout=0x7f080003;
         public static final int textWeather1=0x7f080009;
         public static final int textWeather2=0x7f08000a;
-        public static final int textWeather3=0x7f08000b;
-        public static final int textWeather4=0x7f08000c;
         public static final int texto=0x7f080001;
         public static final int weather=0x7f080005;
     }
@@ -62,7 +60,6 @@ public final class R {
     }
     public static final class string {
         public static final int app_name=0x7f050000;
-        public static final int weatherTitle=0x7f050002;
         public static final int youwillwakeup=0x7f050001;
     }
     public static final class style {
