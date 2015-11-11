@@ -44,7 +44,6 @@
 		        android:layout_height="90dp"
     	        android:src="@drawable/cloud" 
     	        android:layout_marginLeft="70sp"
-    	        android:onClick="getWeather"
     	        />
     	</TableRow>
     	<TableRow android:layout_marginTop="40sp">

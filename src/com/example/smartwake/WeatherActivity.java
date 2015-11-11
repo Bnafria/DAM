@@ -27,6 +27,11 @@ import org.json.JSONObject;
 import org.json.JSONTokener;
 
 import android.app.Activity;
+import android.content.Context;
+import android.location.Location;
+import android.location.LocationManager;
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.util.Log;
@@ -52,13 +57,41 @@ public class WeatherActivity  extends Activity{
 	    temp = (TextView) findViewById(R.id.textWeather1);
 	    lluvia = (TextView) findViewById(R.id.textWeather2);
 
-	    
-	        
-	    //Faltaría lo de coge paraguas y eso. Creo que es lo menos importante jaja
-	    
-	    new HttpAsyncTask().execute("http://api.openweathermap.org/data/2.5/forecast/daily?lat=40.434797&lon=-3.629165&cnt=1&APPID=18e6cd0de24e940208f6a58263337fa7");
+        GPSTracker gpsTracker = new GPSTracker(this);
 
+		if(isOnlineWifi() || isOnline3G() || gpsTracker.getIsGPSTrackingEnabled()) {
+            double longitud = gpsTracker.getLongitude();
+            double latitud = gpsTracker.getLatitude();
+			new HttpAsyncTask().execute("http://api.openweathermap.org/data/2.5/forecast/daily?lat=" +latitud +"&lon=" +longitud+"&cnt=1&APPID=18e6cd0de24e940208f6a58263337fa7");
+		}
+		else{
+			temp.setText("Ups! No tienes conexiÃ³n a Internet.");
+		}
+	}
 
+	protected Boolean isOnlineWifi(){
+		ConnectivityManager connectivity = (ConnectivityManager) getSystemService(Context.CONNECTIVITY_SERVICE);
+		if (connectivity != null) {
+			NetworkInfo info = connectivity.getNetworkInfo(ConnectivityManager.TYPE_WIFI);
+			if (info != null) {
+				if (info.isConnected()) {
+					return true;
+				}
+			}
+		}
+		return false;
+	}
+	protected Boolean isOnline3G(){
+		ConnectivityManager connectivity = (ConnectivityManager) getSystemService(Context.CONNECTIVITY_SERVICE);
+		if (connectivity != null) {
+			NetworkInfo info = connectivity.getNetworkInfo(ConnectivityManager.TYPE_MOBILE);
+			if (info != null) {
+				if (info.isConnected()) {
+					return true;
+				}
+			}
+		}
+		return false;
 	}
 	
 	public static String getWeatherJSON(String url){
@@ -109,7 +142,7 @@ public class WeatherActivity  extends Activity{
         // onPostExecute displays the results of the AsyncTask.
         @Override
         protected void onPostExecute(String result) {
-            Toast.makeText(getBaseContext(), "Received!", Toast.LENGTH_LONG).show();
+            //Toast.makeText(getBaseContext(), "Received!", Toast.LENGTH_LONG).show();
             
             //Que debe hacer
             JSONObject mainObject = null;
@@ -192,7 +225,7 @@ public class WeatherActivity  extends Activity{
 				e.printStackTrace();
 			}
             
-			temp.setText("Para hoy se preeven máximas de " +max +"º y mínimas de " +min +"º");
+			temp.setText("Para hoy se preeven mÃ¡ximas de " +max +"Âº y mÃ­nimas de " +min +"Âº");
             
        }
     }
