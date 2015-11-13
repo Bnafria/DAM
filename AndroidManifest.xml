@@ -27,6 +27,16 @@
             android:name=".WeatherActivity"
             android:theme="@android:style/Theme.NoTitleBar">          
         </activity>
+
+        <activity
+            android:name=".ClockActivity"
+            android:theme="@android:style/Theme.NoTitleBar">
+        </activity>
+
+        <activity
+            android:name=".SettingsActivity"
+            android:theme="@android:style/Theme.NoTitleBar">
+        </activity>
         
     </application>
 
